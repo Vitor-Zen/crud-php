@@ -50,20 +50,16 @@ if(isset($_POST['editar']))
     }
 }
 
-// isset — Informa se a variável foi iniciada
 if(isset($_POST['salvar']))
 {
-    // Captura os dados do formulario pelo name
     $name = mysqli_real_escape_string($con, $_POST['nome']);
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $telefone = mysqli_real_escape_string($con, $_POST['telefone']);
     $curso = mysqli_real_escape_string($con, $_POST['curso']);
         
-    // Gera o comando sql de inserção com os dados capturados do formulário 
     $query = "INSERT INTO aluno (nome, email, telefone,	curso) VALUES 
     ('$name', '$email', '$telefone', '$curso')";
 
-    // Exibe mensagem
     $query_run = mysqli_query($con, $query);
     if($query_run)
     {
